@@ -9,6 +9,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -62,6 +63,10 @@ Route::resource('/city',CityController::class);
 
 /*Project*/
 Route::resource('/project',ProjectController::class);
+/*Project*/
+
+/*Project*/
+Route::resource('/profile',ProfileController::class);
 /*Project*/
 
 Route::middleware([

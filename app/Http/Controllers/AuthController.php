@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Profile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
@@ -73,6 +74,9 @@ class AuthController extends Controller
             $user->email = $request->email;
             $user->password = Hash::make($request->password);
             $user->save();
+            $profile = new Profile();
+            $profile->userId = $user->id;
+            $profile->save();
             return redirect()->route('dashboard')->with('message', 'User created successfully');
         }else{
             return back()->with("message", "Password doesn't matches");
